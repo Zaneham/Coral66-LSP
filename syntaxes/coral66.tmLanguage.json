@@ -1,0 +1,149 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "CORAL 66",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#keywords" },
+    { "include": "#operators" },
+    { "include": "#types" },
+    { "include": "#numbers" },
+    { "include": "#identifiers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.coral66",
+          "match": "\\bCOMMENT\\b[^;]*;?"
+        },
+        {
+          "name": "comment.block.coral66",
+          "begin": "\\(",
+          "end": "\\)",
+          "patterns": [
+            { "include": "#comments" }
+          ]
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.coral66",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.coral66",
+              "match": "\"\""
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.coral66",
+          "match": "\\b(BEGIN|END|IF|THEN|ELSE|FOR|DO|WHILE|STEP|UNTIL|GOTO|ANSWER|CODE)\\b"
+        },
+        {
+          "name": "keyword.declaration.coral66",
+          "match": "\\b(PROCEDURE|RECURSIVE|ARRAY|TABLE|SWITCH|OVERLAY|WITH|PRESET)\\b"
+        },
+        {
+          "name": "keyword.other.coral66",
+          "match": "\\b(VALUE|LOCATION|COMMON|LIBRARY|EXTERNAL|ABSOLUTE|BITS|LABEL|DEFINE|DELETE)\\b"
+        },
+        {
+          "name": "keyword.operator.word.coral66",
+          "match": "\\b(AND|OR|DIFFER|UNION|MASK)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.coral66",
+          "match": ":="
+        },
+        {
+          "name": "keyword.operator.comparison.coral66",
+          "match": "<>|<=|>=|<|>|="
+        },
+        {
+          "name": "keyword.operator.arithmetic.coral66",
+          "match": "[+\\-*/]"
+        },
+        {
+          "name": "punctuation.separator.coral66",
+          "match": "[;:,]"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.coral66",
+          "match": "\\b(INTEGER|FLOATING|FIXED|UNSIGNED)\\b"
+        },
+        {
+          "name": "storage.type.scale.coral66",
+          "match": "\\b(FIXED|UNSIGNED)\\s*\\(\\s*\\d+\\s*,\\s*-?\\d+\\s*\\)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.coral66",
+          "match": "\\b\\d+\\.\\d+(?:\\s*10\\s*-?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.exponent.coral66",
+          "match": "\\b\\d+\\s*10\\s*-?\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.octal.coral66",
+          "match": "\\bOCTAL\\s*\\([0-7]+(?:\\.[0-7]+)?\\)"
+        },
+        {
+          "name": "constant.numeric.literal.coral66",
+          "match": "\\bLITERAL\\s*\\([^)]+\\)"
+        },
+        {
+          "name": "constant.numeric.integer.coral66",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "entity.name.function.coral66",
+          "match": "\\b(?:PROCEDURE|RECURSIVE)\\s+([a-zA-Z][a-zA-Z0-9]*)",
+          "captures": {
+            "1": { "name": "entity.name.function.coral66" }
+          }
+        },
+        {
+          "name": "entity.name.type.table.coral66",
+          "match": "\\bTABLE\\s+([a-zA-Z][a-zA-Z0-9]*)",
+          "captures": {
+            "1": { "name": "entity.name.type.coral66" }
+          }
+        },
+        {
+          "name": "entity.name.label.coral66",
+          "match": "\\b([a-zA-Z][a-zA-Z0-9]*)\\s*:(?!=)"
+        },
+        {
+          "name": "variable.other.coral66",
+          "match": "\\b[a-zA-Z][a-zA-Z0-9]*\\b"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.coral66"
+}

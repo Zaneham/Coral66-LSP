@@ -1,0 +1,102 @@
+{
+  "name": "coral66-lsp",
+  "displayName": "CORAL 66 UK Defence Language",
+  "description": "Language Server Protocol support for CORAL 66 - the UK Ministry of Defence standard real-time programming language",
+  "version": "1.0.0",
+  "author": "Zane Hambly",
+  "license": "Apache-2.0",
+  "publisher": "ZaneHambly",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zaneham/Coral66-LSP"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "keywords": [
+    "coral",
+    "coral66",
+    "coral-66",
+    "defence",
+    "defense",
+    "military",
+    "mod",
+    "real-time",
+    "embedded",
+    "legacy",
+    "algol"
+  ],
+  "activationEvents": [
+    "onLanguage:coral66"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "coral66",
+        "aliases": [
+          "CORAL 66",
+          "CORAL66",
+          "coral66",
+          "Coral 66"
+        ],
+        "extensions": [
+          ".cor",
+          ".crl",
+          ".coral"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "coral66",
+        "scopeName": "source.coral66",
+        "path": "./syntaxes/coral66.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CORAL 66",
+      "properties": {
+        "coral66.pythonPath": {
+          "type": "string",
+          "default": "python",
+          "description": "Path to Python interpreter for LSP server"
+        },
+        "coral66.serverPath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to coral66_lsp_server.py (leave empty to use bundled)"
+        },
+        "coral66.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Traces communication between VS Code and the CORAL 66 language server"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^8.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/vscode": "^1.75.0",
+    "typescript": "^5.0.0"
+  }
+}

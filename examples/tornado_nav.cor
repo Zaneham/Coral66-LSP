@@ -1,0 +1,113 @@
+COMMENT Tornado Aircraft Navigation System;
+COMMENT CORAL 66 example - UK Ministry of Defence standard;
+COMMENT Based on Official Definition of CORAL 66 (HMSO 1970);
+
+BEGIN
+    COMMENT Data declarations;
+    INTEGER waypoint, maxwaypoints := 50;
+    FLOATING latitude, longitude, altitude;
+    FIXED(32, 16) heading, speed, distance;
+
+    COMMENT Navigation waypoint table;
+    TABLE waypoints[4, 100][
+        lat FIXED(32, 16) 0;
+        lon FIXED(32, 16) 1;
+        alt FIXED(16, 4) 2;
+        seq INTEGER 3
+    ];
+
+    COMMENT Flight mode switch;
+    SWITCH flightmode := manual, autopilot, terrain;
+
+    COMMENT Sensor arrays;
+    FLOATING ARRAY altimeter[0:9];
+    INTEGER ARRAY targets[1:20];
+    FIXED(16, 8) ARRAY velocities[0:2];
+
+    COMMENT Navigation procedures;
+    FIXED(32, 16) PROCEDURE calculatebearing(
+        VALUE FIXED(32, 16): lat1, lon1, lat2, lon2);
+    BEGIN
+        FIXED(32, 16) dlat, dlon, bearing;
+        dlat := lat2 - lat1;
+        dlon := lon2 - lon1;
+        COMMENT Simplified bearing calculation;
+        bearing := dlon / dlat;
+        ANSWER bearing
+    END;
+
+    FLOATING PROCEDURE getdistance(
+        VALUE FLOATING: x1, y1, x2, y2);
+    BEGIN
+        FLOATING dx, dy, result;
+        dx := x2 - x1;
+        dy := y2 - y1;
+        COMMENT Euclidean distance;
+        result := dx * dx + dy * dy;
+        ANSWER result
+    END;
+
+    RECURSIVE INTEGER PROCEDURE factorial(VALUE INTEGER: n);
+    BEGIN
+        IF n <= 1 THEN ANSWER 1
+        ELSE ANSWER n * factorial(n - 1)
+    END;
+
+    PROCEDURE updateposition;
+    BEGIN
+        FIXED(32, 16) newlat, newlon;
+        newlat := waypoints[waypoint, 0];
+        newlon := waypoints[waypoint, 1];
+
+        heading := calculatebearing(
+            FIXED(32, 16)(latitude),
+            FIXED(32, 16)(longitude),
+            newlat, newlon);
+
+        distance := getdistance(
+            latitude, longitude,
+            FLOATING(newlat), FLOATING(newlon))
+    END;
+
+    PROCEDURE selectmode;
+    BEGIN
+        IF altitude < 500.0 THEN
+            GOTO terrain
+        ELSE IF speed > 800.0 THEN
+            GOTO autopilot
+        ELSE
+            GOTO manual
+    END;
+
+    COMMENT Main navigation loop;
+init:
+    waypoint := 0;
+    latitude := 52.5;
+    longitude := -1.5;
+    altitude := 10000.0;
+
+manual:
+    COMMENT Manual flight mode;
+    updateposition;
+    IF waypoint < maxwaypoints THEN
+    BEGIN
+        waypoint := waypoint + 1;
+        GOTO manual
+    END;
+
+autopilot:
+    COMMENT Autopilot engaged;
+    FOR waypoint := 1 STEP 1 UNTIL maxwaypoints DO
+    BEGIN
+        updateposition;
+        selectmode
+    END;
+
+terrain:
+    COMMENT Terrain following mode;
+    altitude := 200.0;
+    GOTO autopilot;
+
+complete:
+    COMMENT Navigation complete;
+END
