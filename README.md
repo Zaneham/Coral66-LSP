@@ -151,6 +151,18 @@ Licensed under the Apache Licence, Version 2.0. See [LICENSE](LICENSE) for detai
 
 Contributions are welcome! Please open an issue or pull request on GitHub.
 
+## Related Projects
+
+Right then. If you've made it this far into a language specification that features Crown Copyright and was published by Her Majesty's Stationery Office, you might be the sort of person who appreciates:
+
+- **[JOVIAL J73 LSP](https://github.com/Zaneham/jovial-lsp)** - The American equivalent. Louder, more confident, and used in rather more aircraft. They started in 1959; we started in 1964. They'd say they were first. We'd say we did it properly.
+
+- **[CMS-2 LSP](https://github.com/Zaneham/cms2-lsp)** - The US Navy's tactical language. Terminates statements with dollar signs, which tells you everything you need to know, really.
+
+- **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** - NASA's Space Shuttle language. The Americans went to the Moon with this sort of thing. We went to the Falklands with CORAL. Different priorities.
+
+- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/Minuteman-computer-emulator)** - An emulator for the computers in American nuclear missiles. We had Polaris. Same general idea, different accent.
+
 ## Acknowledgements
 
 - Royal Radar Establishment (RRE), Malvern
