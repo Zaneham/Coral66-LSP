@@ -165,6 +165,12 @@ Right then. If you've made it this far into a language specification that featur
 
 - **[Minuteman Assembler](https://github.com/Zaneham/minuteman-assembler)** - Two-pass assembler for the D17B/D37C. The Americans do insist on building complete toolchains for everything. Admirable work ethic, one supposes.
 
+## Contact
+
+Queries? Corrections? Strongly-worded letters about the correct interpretation of the HMSO specification?
+
+zanehambly@gmail.com - Correspondence answered promptly, weather permitting.
+
 ## Acknowledgements
 
 - Royal Radar Establishment (RRE), Malvern
