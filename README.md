@@ -161,7 +161,9 @@ Right then. If you've made it this far into a language specification that featur
 
 - **[HAL/S LSP](https://github.com/Zaneham/hals-lsp)** - NASA's Space Shuttle language. The Americans went to the Moon with this sort of thing. We went to the Falklands with CORAL. Different priorities.
 
-- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/Minuteman-computer-emulator)** - An emulator for the computers in American nuclear missiles. We had Polaris. Same general idea, different accent.
+- **[Minuteman Guidance Computer Emulator](https://github.com/Zaneham/minuteman-emu)** - An emulator for the computers in American nuclear missiles. We had Polaris. Same general idea, different accent.
+
+- **[Minuteman Assembler](https://github.com/Zaneham/minuteman-assembler)** - Two-pass assembler for the D17B/D37C. The Americans do insist on building complete toolchains for everything. Admirable work ethic, one supposes.
 
 ## Acknowledgements
 
