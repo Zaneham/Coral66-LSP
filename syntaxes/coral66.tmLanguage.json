@@ -15,15 +15,7 @@
       "patterns": [
         {
           "name": "comment.line.coral66",
-          "match": "\\bCOMMENT\\b[^;]*;?"
-        },
-        {
-          "name": "comment.block.coral66",
-          "begin": "\\(",
-          "end": "\\)",
-          "patterns": [
-            { "include": "#comments" }
-          ]
+          "match": "\\bCOMMENT\\b[^;]*;"
         }
       ]
     },
@@ -58,7 +50,11 @@
         },
         {
           "name": "keyword.operator.word.coral66",
-          "match": "\\b(AND|OR|DIFFER|UNION|MASK)\\b"
+          "match": "\\b(AND|OR|NOT|DIFFER|UNION|MASK)\\b"
+        },
+        {
+          "name": "constant.language.coral66",
+          "match": "\\b(TRUE|FALSE)\\b"
         }
       ]
     },
