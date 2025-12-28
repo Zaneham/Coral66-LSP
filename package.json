@@ -2,7 +2,7 @@
   "name": "coral66-lsp",
   "displayName": "CORAL 66 UK Defence Language",
   "description": "Language Server Protocol support for CORAL 66 - the UK Ministry of Defence standard real-time programming language",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Zane Hambly",
   "license": "Apache-2.0",
   "publisher": "ZaneHambly",
