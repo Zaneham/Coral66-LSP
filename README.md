@@ -1,5 +1,7 @@
 # CORAL 66 Language Support for Visual Studio Code
 
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/ZaneHambly.coral66-lsp?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=ZaneHambly.coral66-lsp)
+
 Language Server Protocol (LSP) implementation for **CORAL 66** (Computer On-line Real-time Applications Language), the UK Ministry of Defence standard real-time programming language.
 
 ## About CORAL 66
